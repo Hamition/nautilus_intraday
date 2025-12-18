@@ -1,0 +1,366 @@
+[1m2025-12-18T08:50:55.186939904Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.186948019Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine:  NAUTILUS TRADER - Automated Algorithmic Trading Platform[0m
+[1m2025-12-18T08:50:55.186948388Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine:  by Nautech Systems Pty Ltd.[0m
+[1m2025-12-18T08:50:55.186948676Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine:  Copyright (C) 2015-2025. All rights reserved.[0m
+[1m2025-12-18T08:50:55.186948888Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.186949130Z[0m [INFO] BACKTESTER-001.BacktestEngine: [0m
+[1m2025-12-18T08:50:55.186949455Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[0m
+[1m2025-12-18T08:50:55.186949736Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣾⣿⣿⣿⠀⢸⣿⣿⣿⣿⣶⣶⣤⣀⠀⠀⠀⠀⠀[0m
+[1m2025-12-18T08:50:55.186950107Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠀⠀⠀⠀⢀⣴⡇⢀⣾⣿⣿⣿⣿⣿⠀⣾⣿⣿⣿⣿⣿⣿⣿⠿⠓⠀⠀⠀⠀[0m
+[1m2025-12-18T08:50:55.186950403Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠀⠀⠀⣰⣿⣿⡀⢸⣿⣿⣿⣿⣿⣿⠀⣿⣿⣿⣿⣿⣿⠟⠁⣠⣄⠀⠀⠀⠀[0m
+[1m2025-12-18T08:50:55.186950695Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠀⠀⢠⣿⣿⣿⣇⠀⢿⣿⣿⣿⣿⣿⠀⢻⣿⣿⣿⡿⢃⣠⣾⣿⣿⣧⡀⠀⠀[0m
+[1m2025-12-18T08:50:55.186950981Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠀⠠⣾⣿⣿⣿⣿⣿⣧⠈⠋⢀⣴⣧⠀⣿⡏⢠⡀⢸⣿⣿⣿⣿⣿⣿⣿⡇⠀[0m
+[1m2025-12-18T08:50:55.186951358Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠀⣀⠙⢿⣿⣿⣿⣿⣿⠇⢠⣿⣿⣿⡄⠹⠃⠼⠃⠈⠉⠛⠛⠛⠛⠛⠻⠇⠀[0m
+[1m2025-12-18T08:50:55.186951872Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⢸⡟⢠⣤⠉⠛⠿⢿⣿⠀⢸⣿⡿⠋⣠⣤⣄⠀⣾⣿⣿⣶⣶⣶⣦⡄⠀⠀⠀[0m
+[1m2025-12-18T08:50:55.186952207Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠸⠀⣾⠏⣸⣷⠂⣠⣤⠀⠘⢁⣴⣾⣿⣿⣿⡆⠘⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀[0m
+[1m2025-12-18T08:50:55.186952432Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠀⠀⠛⠀⣿⡟⠀⢻⣿⡄⠸⣿⣿⣿⣿⣿⣿⣿⡀⠘⣿⣿⣿⣿⠟⠀⠀⠀⠀[0m
+[1m2025-12-18T08:50:55.186952685Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠀⠀⠀⠀⣿⠇⠀⠀⢻⡿⠀⠈⠻⣿⣿⣿⣿⣿⡇⠀⢹⣿⠿⠋⠀⠀⠀⠀⠀[0m
+[1m2025-12-18T08:50:55.186953069Z[0m [INFO] BACKTESTER-001.BacktestEngine: ⠀⠀⠀⠀⠀⠀⠋⠀⠀⠀⡘⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀[0m
+[1m2025-12-18T08:50:55.186953578Z[0m [INFO] BACKTESTER-001.BacktestEngine: [0m
+[1m2025-12-18T08:50:55.186953762Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.186953988Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine:  SYSTEM SPECIFICATION[0m
+[1m2025-12-18T08:50:55.186954201Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.186954882Z[0m [INFO] BACKTESTER-001.BacktestEngine: CPU architecture: Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz[0m
+[1m2025-12-18T08:50:55.186955859Z[0m [INFO] BACKTESTER-001.BacktestEngine: CPU(s): 4 @ 3000 Mhz[0m
+[1m2025-12-18T08:50:55.186956537Z[0m [INFO] BACKTESTER-001.BacktestEngine: OS: kernel-6.17.9-arch1-1 Linux (Arch Linux)[0m
+[1m2025-12-18T08:50:55.310704257Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.310712972Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine:  MEMORY USAGE[0m
+[1m2025-12-18T08:50:55.310713445Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.310715406Z[0m [INFO] BACKTESTER-001.BacktestEngine: RAM-Total: 15.51 GiB[0m
+[1m2025-12-18T08:50:55.310716157Z[0m [INFO] BACKTESTER-001.BacktestEngine: RAM-Used: 9.36 GiB (60.37%)[0m
+[1m2025-12-18T08:50:55.310716721Z[0m [INFO] BACKTESTER-001.BacktestEngine: RAM-Avail: 6.15 GiB (39.63%)[0m
+[1m2025-12-18T08:50:55.310718230Z[0m [INFO] BACKTESTER-001.BacktestEngine: Swap-Total: 0.00 GiB[0m
+[1m2025-12-18T08:50:55.310718651Z[0m [INFO] BACKTESTER-001.BacktestEngine: Swap-Used: 0.00 GiB (NaN%)[0m
+[1m2025-12-18T08:50:55.310719157Z[0m [INFO] BACKTESTER-001.BacktestEngine: Swap-Avail: 0.00 GiB (NaN%)[0m
+[1m2025-12-18T08:50:55.315414430Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.315422791Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine:  IDENTIFIERS[0m
+[1m2025-12-18T08:50:55.315423197Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.315424576Z[0m [INFO] BACKTESTER-001.BacktestEngine: trader_id: BACKTESTER-001[0m
+[1m2025-12-18T08:50:55.315425318Z[0m [INFO] BACKTESTER-001.BacktestEngine: machine_id: arch000[0m
+[1m2025-12-18T08:50:55.315427185Z[0m [INFO] BACKTESTER-001.BacktestEngine: instance_id: 9999ccad-8d53-4260-a6e2-f3e5e600c8bc[0m
+[1m2025-12-18T08:50:55.315427950Z[0m [INFO] BACKTESTER-001.BacktestEngine: PID: 551057[0m
+[1m2025-12-18T08:50:55.315428196Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.315428433Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine:  VERSIONING[0m
+[1m2025-12-18T08:50:55.315428653Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.315454488Z[0m [INFO] BACKTESTER-001.BacktestEngine: nautilus_trader: 1.221.0[0m
+[1m2025-12-18T08:50:55.315461406Z[0m [INFO] BACKTESTER-001.BacktestEngine: python: 3.12.2[0m
+[1m2025-12-18T08:50:55.315465476Z[0m [INFO] BACKTESTER-001.BacktestEngine: numpy: 2.0.2[0m
+[1m2025-12-18T08:50:55.315468092Z[0m [INFO] BACKTESTER-001.BacktestEngine: pandas: 2.2.3[0m
+[1m2025-12-18T08:50:55.315471003Z[0m [INFO] BACKTESTER-001.BacktestEngine: msgspec: 0.19.0[0m
+[1m2025-12-18T08:50:55.315473297Z[0m [INFO] BACKTESTER-001.BacktestEngine: pyarrow: 21.0.0[0m
+[1m2025-12-18T08:50:55.315476634Z[0m [INFO] BACKTESTER-001.BacktestEngine: pytz: 2025.2[0m
+[1m2025-12-18T08:50:55.315479675Z[0m [INFO] BACKTESTER-001.BacktestEngine: uvloop: 0.22.1[0m
+[1m2025-12-18T08:50:55.315479965Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2025-12-18T08:50:55.319250501Z[0m [INFO] BACKTESTER-001.BacktestEngine: Building system kernel[0m
+[1m2025-12-18T08:50:55.319291210Z[0m [94m[INFO] BACKTESTER-001.MessageBus: config.database=None[0m
+[1m2025-12-18T08:50:55.319292811Z[0m [94m[INFO] BACKTESTER-001.MessageBus: config.encoding='msgpack'[0m
+[1m2025-12-18T08:50:55.319293910Z[0m [94m[INFO] BACKTESTER-001.MessageBus: config.timestamps_as_iso8601=False[0m
+[1m2025-12-18T08:50:55.319295054Z[0m [94m[INFO] BACKTESTER-001.MessageBus: config.buffer_interval_ms=None[0m
+[1m2025-12-18T08:50:55.319295995Z[0m [94m[INFO] BACKTESTER-001.MessageBus: config.autotrim_mins=None[0m
+[1m2025-12-18T08:50:55.319296762Z[0m [94m[INFO] BACKTESTER-001.MessageBus: config.use_trader_prefix=True[0m
+[1m2025-12-18T08:50:55.319297667Z[0m [94m[INFO] BACKTESTER-001.MessageBus: config.use_trader_id=True[0m
+[1m2025-12-18T08:50:55.319299574Z[0m [94m[INFO] BACKTESTER-001.MessageBus: config.use_instance_id=False[0m
+[1m2025-12-18T08:50:55.320535540Z[0m [94m[INFO] BACKTESTER-001.MessageBus: config.streams_prefix='stream'[0m
+[1m2025-12-18T08:50:55.320538544Z[0m [94m[INFO] BACKTESTER-001.MessageBus: config.types_filter=None[0m
+[1m2025-12-18T08:50:55.320607342Z[0m [INFO] BACKTESTER-001.Cache: READY[0m
+[1m2025-12-18T08:50:55.321363049Z[0m [INFO] BACKTESTER-001.DataEngine: READY[0m
+[1m2025-12-18T08:50:55.321462084Z[0m [INFO] BACKTESTER-001.RiskEngine: READY[0m
+[1m2025-12-18T08:50:55.321499581Z[0m [94m[INFO] BACKTESTER-001.RiskEngine: TradingState is ACTIVE[0m
+[1m2025-12-18T08:50:55.321571096Z[0m [INFO] BACKTESTER-001.Throttler-ORDER_SUBMIT_THROTTLER: READY[0m
+[1m2025-12-18T08:50:55.321599888Z[0m [94m[INFO] BACKTESTER-001.RiskEngine: Set MAX_ORDER_SUBMIT_RATE: 100/00:00:01[0m
+[1m2025-12-18T08:50:55.321632958Z[0m [INFO] BACKTESTER-001.Throttler-ORDER_MODIFY_THROTTLER: READY[0m
+[1m2025-12-18T08:50:55.321647652Z[0m [94m[INFO] BACKTESTER-001.RiskEngine: Set MAX_ORDER_MODIFY_RATE: 100/00:00:01[0m
+[1m2025-12-18T08:50:55.321694104Z[0m [INFO] BACKTESTER-001.ExecEngine: READY[0m
+[1m2025-12-18T08:50:55.321728245Z[0m [94m[INFO] BACKTESTER-001.ExecEngine: config.snapshot_orders=False[0m
+[1m2025-12-18T08:50:55.321729289Z[0m [94m[INFO] BACKTESTER-001.ExecEngine: config.snapshot_positions=False[0m
+[1m2025-12-18T08:50:55.321730254Z[0m [94m[INFO] BACKTESTER-001.ExecEngine: config.snapshot_positions_interval_secs=None[0m
+[1m2025-12-18T08:50:55.321768647Z[0m [INFO] BACKTESTER-001.Cache: Cached 0 general objects from database[0m
+[1m2025-12-18T08:50:55.321773809Z[0m [INFO] BACKTESTER-001.Cache: Cached 0 currencies from database[0m
+[1m2025-12-18T08:50:55.321776318Z[0m [INFO] BACKTESTER-001.Cache: Cached 0 instruments from database[0m
+[1m2025-12-18T08:50:55.321779322Z[0m [INFO] BACKTESTER-001.Cache: Cached 0 accounts from database[0m
+[1m2025-12-18T08:50:55.321782047Z[0m [INFO] BACKTESTER-001.Cache: Cached 0 orders from database[0m
+[1m2025-12-18T08:50:55.321784743Z[0m [INFO] BACKTESTER-001.Cache: Cached 0 order lists from database[0m
+[1m2025-12-18T08:50:55.321787091Z[0m [INFO] BACKTESTER-001.Cache: Cached 0 positions from database[0m
+[1m2025-12-18T08:50:55.321802436Z[0m [INFO] BACKTESTER-001.Cache: Checking data integrity[0m
+[1m2025-12-18T08:50:55.321811111Z[0m [92m[INFO] BACKTESTER-001.Cache: Integrity check passed in 9μs[0m
+[1m2025-12-18T08:50:55.321821162Z[0m [INFO] BACKTESTER-001.ExecEngine: Loaded cache in 0ms[0m
+[1m2025-12-18T08:50:55.321858214Z[0m [INFO] BACKTESTER-001.OrderEmulator: READY[0m
+[1m2025-12-18T08:50:55.321921174Z[0m [INFO] BACKTESTER-001.BACKTESTER-001: READY[0m
+[1m2025-12-18T08:50:56.365172373Z[0m [INFO] BACKTESTER-001.MomentumStrategy: READY[0m
+[1m2025-12-18T08:50:56.365293266Z[0m [INFO] BACKTESTER-001.ExecEngine: Registered OMS.UNSPECIFIED for Strategy MomentumStrategy-000[0m
+[1m2025-12-18T08:50:56.365300270Z[0m [INFO] BACKTESTER-001.BACKTESTER-001: Registered Strategy MomentumStrategy-000[0m
+[1m2025-12-18T08:50:56.365337604Z[0m [INFO] BACKTESTER-001.BacktestEngine: Initialized in 1360ms[0m
+[1m2025-12-18T08:50:56.365518984Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): OmsType=NETTING[0m
+[1m2025-12-18T08:50:56.365579598Z[0m [INFO] BACKTESTER-001.ExecClient-XNYS: READY[0m
+[1m2025-12-18T08:50:56.365629080Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Registered ExecutionClient-XNYS[0m
+[1m2025-12-18T08:50:56.365649956Z[0m [INFO] BACKTESTER-001.ExecEngine: Registered ExecutionClient-XNYS[0m
+[1m2025-12-18T08:50:56.365700853Z[0m [INFO] BACKTESTER-001.DataClient-XNYS: READY[0m
+[1m2025-12-18T08:50:56.365721602Z[0m [INFO] BACKTESTER-001.DataEngine: Registered XNYS[0m
+[1m2025-12-18T08:50:56.365727652Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SimulatedExchange(id=XNYS, oms_type=NETTING, account_type=MARGIN)[0m
+[1m2025-12-18T08:50:56.498936009Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Added instrument SIM0.XNYS and created matching engine[0m
+[1m2025-12-18T08:50:56.498946923Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SIM0.XNYS Instrument[0m
+[1m2025-12-18T08:50:56.619049768Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Added instrument SIM1.XNYS and created matching engine[0m
+[1m2025-12-18T08:50:56.619059985Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SIM1.XNYS Instrument[0m
+[1m2025-12-18T08:50:56.739362409Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Added instrument SIM10.XNYS and created matching engine[0m
+[1m2025-12-18T08:50:56.739373488Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SIM10.XNYS Instrument[0m
+[1m2025-12-18T08:50:56.853898036Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Added instrument SIM100.XNYS and created matching engine[0m
+[1m2025-12-18T08:50:56.853907523Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SIM100.XNYS Instrument[0m
+[1m2025-12-18T08:50:57.035309642Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Added instrument SIM1000.XNYS and created matching engine[0m
+[1m2025-12-18T08:50:57.035325698Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SIM1000.XNYS Instrument[0m
+[1m2025-12-18T08:50:57.154509279Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Added instrument SIM1001.XNYS and created matching engine[0m
+[1m2025-12-18T08:50:57.154518704Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SIM1001.XNYS Instrument[0m
+[1m2025-12-18T08:50:57.273136894Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Added instrument SIM1002.XNYS and created matching engine[0m
+[1m2025-12-18T08:50:57.273145734Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SIM1002.XNYS Instrument[0m
+[1m2025-12-18T08:50:57.388870405Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Added instrument SIM1003.XNYS and created matching engine[0m
+[1m2025-12-18T08:50:57.388878978Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SIM1003.XNYS Instrument[0m
+[1m2025-12-18T08:50:57.501283880Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Added instrument SIM1004.XNYS and created matching engine[0m
+[1m2025-12-18T08:50:57.501293439Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SIM1004.XNYS Instrument[0m
+[1m2025-12-18T08:50:57.614644564Z[0m [INFO] BACKTESTER-001.SimulatedExchange(XNYS): Added instrument SIM1005.XNYS and created matching engine[0m
+[1m2025-12-18T08:50:57.614654102Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added SIM1005.XNYS Instrument[0m
+[1m2025-12-18T08:50:58.802586714Z[0m [INFO] BACKTESTER-001.DataClient-backtest_default_client: READY[0m
+[1m2025-12-18T08:50:58.802653718Z[0m [INFO] BACKTESTER-001.DataEngine: Registered backtest_default_client[0m
+[1m2025-12-18T08:50:58.802839723Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM0.XNYS')].[0m
+[1m2025-12-18T08:50:59.164102596Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.361220s[0m
+[1m2025-12-18T08:50:59.171604173Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM0.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:50:59.171680394Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.007594s[0m
+[1m2025-12-18T08:50:59.171717553Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1.XNYS')].[0m
+[1m2025-12-18T08:50:59.579878941Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.408118s[0m
+[1m2025-12-18T08:50:59.587984692Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:50:59.588065586Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.008196s[0m
+[1m2025-12-18T08:50:59.588099056Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM10.XNYS')].[0m
+[1m2025-12-18T08:50:59.952296953Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.364141s[0m
+[1m2025-12-18T08:50:59.963123955Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM10.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:50:59.963206745Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.010929s[0m
+[1m2025-12-18T08:50:59.963242187Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM100.XNYS')].[0m
+[1m2025-12-18T08:51:00.328055469Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.364772s[0m
+[1m2025-12-18T08:51:00.341530388Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM100.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:00.341608916Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.013562s[0m
+[1m2025-12-18T08:51:00.341646272Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1000.XNYS')].[0m
+[1m2025-12-18T08:51:00.704100048Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.362410s[0m
+[1m2025-12-18T08:51:00.719392218Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1000.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:00.719474856Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.015385s[0m
+[1m2025-12-18T08:51:00.719512569Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1001.XNYS')].[0m
+[1m2025-12-18T08:51:01.082546044Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.362993s[0m
+[1m2025-12-18T08:51:01.100263083Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1001.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:01.100353207Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.017805s[0m
+[1m2025-12-18T08:51:01.100390148Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1002.XNYS')].[0m
+[1m2025-12-18T08:51:01.472612856Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.372186s[0m
+[1m2025-12-18T08:51:01.492685010Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1002.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:01.492776941Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.020160s[0m
+[1m2025-12-18T08:51:01.492819157Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1003.XNYS')].[0m
+[1m2025-12-18T08:51:01.862863830Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.370007s[0m
+[1m2025-12-18T08:51:01.885145747Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1003.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:01.885227537Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.022372s[0m
+[1m2025-12-18T08:51:01.885262432Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1004.XNYS')].[0m
+[1m2025-12-18T08:51:02.249371642Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.364052s[0m
+[1m2025-12-18T08:51:02.273817876Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1004.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:02.273900997Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.024551s[0m
+[1m2025-12-18T08:51:02.273935856Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1005.XNYS')].[0m
+[1m2025-12-18T08:51:02.648789286Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.374793s[0m
+[1m2025-12-18T08:51:02.679922495Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1005.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:02.680006519Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.031243s[0m
+[1m2025-12-18T08:51:02.680041921Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM0.XNYS')].[0m
+[1m2025-12-18T08:51:03.050074415Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.369987s[0m
+[1m2025-12-18T08:51:03.079625557Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM0.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:03.079708046Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.029644s[0m
+[1m2025-12-18T08:51:03.079742914Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1.XNYS')].[0m
+[1m2025-12-18T08:51:03.453249439Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.373463s[0m
+[1m2025-12-18T08:51:03.485122570Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:03.485206429Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.031964s[0m
+[1m2025-12-18T08:51:03.485242613Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM10.XNYS')].[0m
+[1m2025-12-18T08:51:03.857243937Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.371960s[0m
+[1m2025-12-18T08:51:03.892573080Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM10.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:03.892656897Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.035419s[0m
+[1m2025-12-18T08:51:03.892695062Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM100.XNYS')].[0m
+[1m2025-12-18T08:51:04.264276591Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.371543s[0m
+[1m2025-12-18T08:51:04.302108685Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM100.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:04.302192615Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.037920s[0m
+[1m2025-12-18T08:51:04.302229583Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1000.XNYS')].[0m
+[1m2025-12-18T08:51:04.735416679Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.433146s[0m
+[1m2025-12-18T08:51:04.776161396Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1000.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:04.776264333Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.040853s[0m
+[1m2025-12-18T08:51:04.776298946Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1001.XNYS')].[0m
+[1m2025-12-18T08:51:05.147958529Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.371604s[0m
+[1m2025-12-18T08:51:05.191057717Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1001.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:05.191142333Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.043203s[0m
+[1m2025-12-18T08:51:05.191177922Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1002.XNYS')].[0m
+[1m2025-12-18T08:51:05.570226841Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.379005s[0m
+[1m2025-12-18T08:51:05.620449307Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1002.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:05.620558667Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.050319s[0m
+[1m2025-12-18T08:51:05.620612946Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1003.XNYS')].[0m
+[1m2025-12-18T08:51:06.001829074Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.381175s[0m
+[1m2025-12-18T08:51:06.050661865Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1003.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:06.050746674Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.048935s[0m
+[1m2025-12-18T08:51:06.050781631Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1004.XNYS')].[0m
+[1m2025-12-18T08:51:06.439420081Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.388591s[0m
+[1m2025-12-18T08:51:06.490769119Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1004.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:06.490849838Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.051443s[0m
+[1m2025-12-18T08:51:06.490884944Z[0m [INFO] BACKTESTER-001.BacktestEngine: Reading <class 'nautilus_trader.model.data.Bar'> data for instrument_ids=[InstrumentId('SIM1005.XNYS')].[0m
+[1m2025-12-18T08:51:06.878633624Z[0m [INFO] BACKTESTER-001.BacktestEngine: Read 8,994 events from parquet in 0 days 00:00:00.387705s[0m
+[1m2025-12-18T08:51:06.932534444Z[0m [INFO] BACKTESTER-001.BacktestEngine: Added 8_994 SIM1005.XNYS-1-DAY-LAST-EXTERNAL Bar elements[0m
+[1m2025-12-18T08:51:06.932623945Z[0m [INFO] BACKTESTER-001.BacktestEngine: Engine load took 0 days 00:00:00.053993s[0m
+[1m2025-12-18T08:51:06.932814954Z[0m [INFO] BACKTESTER-001.Portfolio: Updated AccountState(account_id=XNYS-001, account_type=MARGIN, base_currency=None, is_reported=True, balances=[AccountBalance(total=1_000_000.00 USD, locked=0.00 USD, free=1_000_000.00 USD)], margins=[], event_id=383fc026-3a51-4480-87bd-bd7ea8a420f4)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: STARTING[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-XNYS: Connecting...[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-XNYS: Connected[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-XNYS: RUNNING[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-backtest_default_client: Connecting...[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-backtest_default_client: Connected[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-backtest_default_client: RUNNING[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataEngine: RUNNING[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.RiskEngine: RUNNING[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.ExecClient-XNYS: Connecting...[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.ExecClient-XNYS: Connected[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.ExecClient-XNYS: RUNNING[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.ExecEngine: RUNNING[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataEngine: Connecting all clients...[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.ExecEngine: Connecting all clients...[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.OrderEmulator: No emulated orders to reactivate[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.OrderEmulator: RUNNING[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.Portfolio: Initialized 0 open orders[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.Portfolio: Initialized 0 open positions[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [94m[INFO] BACKTESTER-001.MomentumStrategy: self.config.oms_type=None[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [94m[INFO] BACKTESTER-001.MomentumStrategy: self.config.external_order_claims=None[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [94m[INFO] BACKTESTER-001.MomentumStrategy: self.config.manage_gtd_expiry=False[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [94m[INFO] BACKTESTER-001.MomentumStrategy: Set ClientOrderIdGenerator client_order_id count to 0[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [94m[INFO] BACKTESTER-001.MomentumStrategy: Set ClientOrderIdGenerator order_list_id count to 0[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: [CMD]--> SubscribeBars(bar_type=SIM0.XNYS-1-MINUTE-LAST-EXTERNAL, client_id=None, venue=XNYS)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: [CMD]--> SubscribeBars(bar_type=SIM1.XNYS-1-MINUTE-LAST-EXTERNAL, client_id=None, venue=XNYS)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: [CMD]--> SubscribeBars(bar_type=SIM10.XNYS-1-MINUTE-LAST-EXTERNAL, client_id=None, venue=XNYS)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: [CMD]--> SubscribeBars(bar_type=SIM100.XNYS-1-MINUTE-LAST-EXTERNAL, client_id=None, venue=XNYS)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: [CMD]--> SubscribeBars(bar_type=SIM1000.XNYS-1-MINUTE-LAST-EXTERNAL, client_id=None, venue=XNYS)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: [CMD]--> SubscribeBars(bar_type=SIM1001.XNYS-1-MINUTE-LAST-EXTERNAL, client_id=None, venue=XNYS)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: [CMD]--> SubscribeBars(bar_type=SIM1002.XNYS-1-MINUTE-LAST-EXTERNAL, client_id=None, venue=XNYS)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: [CMD]--> SubscribeBars(bar_type=SIM1003.XNYS-1-MINUTE-LAST-EXTERNAL, client_id=None, venue=XNYS)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: [CMD]--> SubscribeBars(bar_type=SIM1004.XNYS-1-MINUTE-LAST-EXTERNAL, client_id=None, venue=XNYS)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: [CMD]--> SubscribeBars(bar_type=SIM1005.XNYS-1-MINUTE-LAST-EXTERNAL, client_id=None, venue=XNYS)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: RUNNING[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BACKTESTER-001: RUNNING[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine:  MEMORY USAGE[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [36m[INFO] BACKTESTER-001.BacktestEngine: =================================================================[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: RAM-Total: 15.51 GiB[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: RAM-Used: 9.49 GiB (61.15%)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: RAM-Avail: 6.03 GiB (38.85%)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: Swap-Total: 0.00 GiB[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: Swap-Used: 0.00 GiB (NaN%)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: Swap-Avail: 0.00 GiB (NaN%)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m=================================================================[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m SimulatedVenue XNYS[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m=================================================================[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: MarginAccount(id=XNYS-001, type=MARGIN, base=None)[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m-----------------------------------------------------------------[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: Balances starting:[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: 1_000_000.00 USD[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m=================================================================[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m BACKTEST RUN[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m=================================================================[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: Run config ID:  89be2de42497a79d81a0fa7a9dceba55de3778635cef8cece5de66304290615a[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: Run ID:         0102a784-a002-4a9a-9456-45aba5acf726[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: Run started:    2025-12-18T08:51:06.932680000Z[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: Backtest start: 2024-10-01T00:00:00.000000000Z[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: Batch start:    2024-10-01T00:00:00.000000000Z[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: Batch end:      2024-11-01T00:00:00.000000000Z[0m
+[1m2024-10-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m-----------------------------------------------------------------[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [1;33m[WARN] BACKTESTER-001.MomentumStrategy: The `Strategy.on_stop` handler was called when not overridden. It's expected that any actions required when stopping the strategy occur here, such as unsubscribing from data[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.MomentumStrategy: STOPPED[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.BACKTESTER-001: STOPPED[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-XNYS: Disconnecting...[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-XNYS: Disconnected[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-XNYS: STOPPED[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-backtest_default_client: Disconnecting...[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-backtest_default_client: Disconnected[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataClient-backtest_default_client: STOPPED[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.DataEngine: STOPPED[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.RiskEngine: STOPPED[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.ExecClient-XNYS: Disconnecting...[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.ExecClient-XNYS: Disconnected[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.ExecClient-XNYS: STOPPED[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.ExecEngine: STOPPED[0m
+[1m2024-11-01T00:00:00.000000000Z[0m [INFO] BACKTESTER-001.OrderEmulator: STOPPED[0m
+[1m2025-12-18T08:51:24.076816533Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m=================================================================[0m
+[1m2025-12-18T08:51:24.076819510Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m BACKTEST POST-RUN[0m
+[1m2025-12-18T08:51:24.076820486Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m=================================================================[0m
+[1m2025-12-18T08:51:24.076821682Z[0m [INFO] BACKTESTER-001.BacktestEngine: Run config ID:  89be2de42497a79d81a0fa7a9dceba55de3778635cef8cece5de66304290615a[0m
+[1m2025-12-18T08:51:24.076825408Z[0m [INFO] BACKTESTER-001.BacktestEngine: Run ID:         0102a784-a002-4a9a-9456-45aba5acf726[0m
+[1m2025-12-18T08:51:24.076835031Z[0m [INFO] BACKTESTER-001.BacktestEngine: Run started:    2025-12-18T08:51:06.932680000Z[0m
+[1m2025-12-18T08:51:24.076839957Z[0m [INFO] BACKTESTER-001.BacktestEngine: Run finished:   2025-12-18T08:51:24.076756000Z[0m
+[1m2025-12-18T08:51:24.076869475Z[0m [INFO] BACKTESTER-001.BacktestEngine: Elapsed time:   0 days 00:00:17.144076[0m
+[1m2025-12-18T08:51:24.076874176Z[0m [INFO] BACKTESTER-001.BacktestEngine: Backtest start: 2024-10-01T00:00:00.000000000Z[0m
+[1m2025-12-18T08:51:24.076876675Z[0m [INFO] BACKTESTER-001.BacktestEngine: Backtest end:   2024-11-01T00:00:00.000000000Z[0m
+[1m2025-12-18T08:51:24.076889503Z[0m [INFO] BACKTESTER-001.BacktestEngine: Backtest range: 31 days 00:00:00[0m
+[1m2025-12-18T08:51:24.076894255Z[0m [INFO] BACKTESTER-001.BacktestEngine: Iterations: 179_880[0m
+[1m2025-12-18T08:51:24.076898195Z[0m [INFO] BACKTESTER-001.BacktestEngine: Total events: 0[0m
+[1m2025-12-18T08:51:24.076904694Z[0m [INFO] BACKTESTER-001.BacktestEngine: Total orders: 0[0m
+[1m2025-12-18T08:51:24.076914935Z[0m [INFO] BACKTESTER-001.BacktestEngine: Total positions: 0[0m
+[1m2025-12-18T08:51:24.076921277Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m=================================================================[0m
+[1m2025-12-18T08:51:24.076925586Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m SimulatedVenue XNYS[0m
+[1m2025-12-18T08:51:24.076927431Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m=================================================================[0m
+[1m2025-12-18T08:51:24.076934944Z[0m [INFO] BACKTESTER-001.BacktestEngine: MarginAccount(id=XNYS-001, type=MARGIN, base=None)[0m
+[1m2025-12-18T08:51:24.076935879Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m-----------------------------------------------------------------[0m
+[1m2025-12-18T08:51:24.076937917Z[0m [INFO] BACKTESTER-001.BacktestEngine: Balances starting:[0m
+[1m2025-12-18T08:51:24.076955882Z[0m [INFO] BACKTESTER-001.BacktestEngine: 1_000_000.00 USD[0m
+[1m2025-12-18T08:51:24.076958193Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m-----------------------------------------------------------------[0m
+[1m2025-12-18T08:51:24.076958961Z[0m [INFO] BACKTESTER-001.BacktestEngine: Balances ending:[0m
+[1m2025-12-18T08:51:24.076965921Z[0m [INFO] BACKTESTER-001.BacktestEngine: 1_000_000.00 USD[0m
+[1m2025-12-18T08:51:24.076967157Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m-----------------------------------------------------------------[0m
+[1m2025-12-18T08:51:24.076968075Z[0m [INFO] BACKTESTER-001.BacktestEngine: Commissions:[0m
+[1m2025-12-18T08:51:24.076970411Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m-----------------------------------------------------------------[0m
+[1m2025-12-18T08:51:24.076971604Z[0m [INFO] BACKTESTER-001.BacktestEngine: Unrealized PnLs (included in totals):[0m
+[1m2025-12-18T08:51:24.076987196Z[0m [INFO] BACKTESTER-001.BacktestEngine: None[0m
+[1m2025-12-18T08:51:24.076993122Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m=================================================================[0m
+[1m2025-12-18T08:51:24.076994210Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m PORTFOLIO PERFORMANCE[0m
+[1m2025-12-18T08:51:24.076995495Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m=================================================================[0m
+[1m2025-12-18T08:51:24.077509012Z[0m [INFO] BACKTESTER-001.BacktestEngine:  Returns Statistics[0m
+[1m2025-12-18T08:51:24.077513271Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m-----------------------------------------------------------------[0m
+[1m2025-12-18T08:51:24.077596739Z[0m [INFO] BACKTESTER-001.BacktestEngine: Returns Volatility (252 days):  nan[0m
+[1m2025-12-18T08:51:24.077599450Z[0m [INFO] BACKTESTER-001.BacktestEngine: Average (Return):               nan[0m
+[1m2025-12-18T08:51:24.077600179Z[0m [INFO] BACKTESTER-001.BacktestEngine: Average Loss (Return):          nan[0m
+[1m2025-12-18T08:51:24.077602044Z[0m [INFO] BACKTESTER-001.BacktestEngine: Average Win (Return):           nan[0m
+[1m2025-12-18T08:51:24.077602550Z[0m [INFO] BACKTESTER-001.BacktestEngine: Sharpe Ratio (252 days):        nan[0m
+[1m2025-12-18T08:51:24.077603020Z[0m [INFO] BACKTESTER-001.BacktestEngine: Sortino Ratio (252 days):       nan[0m
+[1m2025-12-18T08:51:24.077603449Z[0m [INFO] BACKTESTER-001.BacktestEngine: Profit Factor:                  nan[0m
+[1m2025-12-18T08:51:24.077603864Z[0m [INFO] BACKTESTER-001.BacktestEngine: Risk Return Ratio:              nan[0m
+[1m2025-12-18T08:51:24.077605089Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m-----------------------------------------------------------------[0m
+[1m2025-12-18T08:51:24.077605814Z[0m [INFO] BACKTESTER-001.BacktestEngine:  General Statistics[0m
+[1m2025-12-18T08:51:24.077606544Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m-----------------------------------------------------------------[0m
+[1m2025-12-18T08:51:24.077633628Z[0m [INFO] BACKTESTER-001.BacktestEngine: [36m-----------------------------------------------------------------[0m
+[1m2025-12-18T08:51:24.081336360Z[0m [INFO] BACKTESTER-001.DataClient-XNYS: DISPOSED[0m
+[1m2025-12-18T08:51:24.081359469Z[0m [INFO] BACKTESTER-001.DataClient-backtest_default_client: DISPOSED[0m
+[1m2025-12-18T08:51:24.081374594Z[0m [INFO] BACKTESTER-001.DataEngine: DISPOSED[0m
+[1m2025-12-18T08:51:24.081393077Z[0m [INFO] BACKTESTER-001.RiskEngine: DISPOSED[0m
+[1m2025-12-18T08:51:24.081417095Z[0m [INFO] BACKTESTER-001.ExecClient-XNYS: DISPOSED[0m
+[1m2025-12-18T08:51:24.081432182Z[0m [INFO] BACKTESTER-001.ExecEngine: DISPOSED[0m
+[1m2025-12-18T08:51:24.081445839Z[0m [INFO] BACKTESTER-001.MessageBus: Closed message bus[0m
+[1m2025-12-18T08:51:24.081459356Z[0m [INFO] BACKTESTER-001.BACKTESTER-001: Cleared actors[0m
+[1m2025-12-18T08:51:24.081476204Z[0m [INFO] BACKTESTER-001.MomentumStrategy: DISPOSED[0m
+[1m2025-12-18T08:51:24.081491950Z[0m [INFO] BACKTESTER-001.BACKTESTER-001: Cleared trading strategies[0m
+[1m2025-12-18T08:51:24.081496574Z[0m [INFO] BACKTESTER-001.BACKTESTER-001: Cleared execution algorithms[0m
+[1m2025-12-18T08:51:24.081508290Z[0m [INFO] BACKTESTER-001.BACKTESTER-001: DISPOSED[0m
+Selected Instruments: ['SIM0.XNYS', 'SIM1.XNYS', 'SIM10.XNYS', 'SIM100.XNYS', 'SIM1000.XNYS', 'SIM1001.XNYS', 'SIM1002.XNYS', 'SIM1003.XNYS', 'SIM1004.XNYS', 'SIM1005.XNYS']
+Starting backtest...
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Optimization failed (SCS): Solver returned no solution. Falling back to equal weights.
+Backtest completed.
+[BacktestResult(trader_id='BACKTESTER-001', machine_id='arch000', run_config_id='89be2de42497a79d81a0fa7a9dceba55de3778635cef8cece5de66304290615a', instance_id='9999ccad-8d53-4260-a6e2-f3e5e600c8bc', run_id='0102a784-a002-4a9a-9456-45aba5acf726', run_started=1766047866932680000, run_finished=1766047884076756000, backtest_start=1727740800000000000, backtest_end=1730419200000000000, elapsed_time=2678400.0, iterations=179880, total_events=0, total_orders=0, total_positions=0, stats_pnls={'USD': {'PnL (total)': 0.0, 'PnL% (total)': 0.0, 'Max Winner': 0.0, 'Avg Winner': 0.0, 'Min Winner': 0.0, 'Min Loser': 0.0, 'Avg Loser': 0.0, 'Max Loser': 0.0, 'Expectancy': 0.0, 'Win Rate': 0.0}}, stats_returns={'Returns Volatility (252 days)': nan, 'Average (Return)': nan, 'Average Loss (Return)': nan, 'Average Win (Return)': nan, 'Sharpe Ratio (252 days)': nan, 'Sortino Ratio (252 days)': nan, 'Profit Factor': nan, 'Risk Return Ratio': nan})]

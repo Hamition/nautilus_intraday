@@ -1,41 +1,56 @@
+# src/data.py
+from __future__ import annotations
+
 import os
+from typing import List
+
 from nautilus_trader.persistence.catalog import ParquetDataCatalog
 from nautilus_trader.backtest.config import BacktestDataConfig
 from nautilus_trader.model.data import Bar
 
-def get_catalog(root_path: str = None) -> ParquetDataCatalog:
-    """Initialize the data catalog."""
-    path = root_path or os.path.expanduser(os.getenv('NAUTILUS_ROOT', '.'))
+
+def get_catalog(path) -> ParquetDataCatalog:
+    """Initialize catalog from NAUTILUS_ROOT env var (fallback to current dir)."""
     return ParquetDataCatalog(path=path)
 
-def get_top_liquid_instruments(catalog: ParquetDataCatalog, limit: int = 10) -> list[str]:
-    """Filter and return the top N instruments."""
+
+def get_top_liquid_instruments(catalog: ParquetDataCatalog, limit: int = 10) -> List[str]:
+    """
+    Return top N instrument IDs.
+
+    In production: filter by average daily volume or liquidity.
+    """
     instruments = catalog.instruments()
-    # In a real scenario, you might filter by volume here
     return [str(inst.id) for inst in instruments][:limit]
 
-def create_data_configs(catalog_path: str, instrument_ids: list[str]) -> list[BacktestDataConfig]:
-    """Generate data configurations for minute and daily bars."""
-    configs = []
-    
-    # Minute bars for trading
-    configs.extend([
+
+def create_data_configs(
+    catalog_path: str,
+    instrument_ids: List[str],
+) -> List[BacktestDataConfig]:
+    """Create configs for 1-minute (execution) and 1-day (ADV) bars."""
+    configs: List[BacktestDataConfig] = []
+
+    # 1-minute bars for intraday trading
+    configs.extend(
         BacktestDataConfig(
             catalog_path=catalog_path,
             data_cls=Bar,
-            instrument_id=inst,
-            bar_spec=f"{inst}-1-MINUTE-LAST-EXTERNAL"
-        ) for inst in instrument_ids
-    ])
-    
-    # Daily bars for ADV calculations
-    configs.extend([
+            instrument_id=inst_id,
+            bar_spec=f"{inst_id}-1-MINUTE-LAST-EXTERNAL",
+        )
+        for inst_id in instrument_ids
+    )
+
+    # 1-day bars for average daily volume calculations
+    configs.extend(
         BacktestDataConfig(
             catalog_path=catalog_path,
             data_cls=Bar,
-            instrument_id=inst,
-            bar_spec=f"{inst}-1-DAY-LAST-EXTERNAL"
-        ) for inst in instrument_ids
-    ])
-    
+            instrument_id=inst_id,
+            bar_spec=f"{inst_id}-1-DAY-LAST-EXTERNAL",
+        )
+        for inst_id in instrument_ids
+    )
+
     return configs
