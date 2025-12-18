@@ -43,6 +43,7 @@ data/
 *.parquet
 *.csv
 *.h5
+*.txt
 
 # Ignore logs and backtest artifacts
 *.log
