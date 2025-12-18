@@ -1,0 +1,62 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Environments ---
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# --- IDEs & Editors ---
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# --- Nautilus Trader & Data ---
+# Ignore local data catalogs (Parquet/CSV) to avoid bloating the repo
+catalog/
+data/
+*.parquet
+*.csv
+*.h5
+
+# Ignore logs and backtest artifacts
+*.log
+logs/
+backtest_results/
+.nautilus/
+
+# --- Analysis & MLflow ---
+# If you are using MLflow locally (as seen in analysis.py)
+mlruns/
+.trash/
+*.pkl
+*.pickle
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints
+*-checkpoint.ipynb
