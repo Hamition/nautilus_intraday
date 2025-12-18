@@ -35,7 +35,7 @@ def calculate_target_weights(
     )
 
     try:
-        prob.solve(solver=cp.SCS, max_iters=10000)
+        prob.solve(solver=cp.MOSEK)
         weights_val = w.value
         if weights_val is None:
             raise ValueError("Solver returned None")
