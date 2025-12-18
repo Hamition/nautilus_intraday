@@ -1,0 +1,9 @@
+[project]
+name = "nautilus-intraday"
+version = "0.1.0"
+dependencies = [
+    "nautilus-trader",
+    "pandas",
+    "pyarrow",
+    "numpy",
+]
