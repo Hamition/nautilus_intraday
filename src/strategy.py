@@ -33,7 +33,6 @@ class MomentumStrategy(Strategy):
         self.target_positions_usd = None
         self.day_count = 0
         self.at_wave = False
-
         self.catalog = ParquetDataCatalog(
             path=os.path.expanduser(os.getenv("NAUTILUS_ROOT"))
         )
@@ -44,6 +43,7 @@ class MomentumStrategy(Strategy):
             for inst_id in self.instrument_ids
 
         }
+        self._last_minute: int | None = None
 
     def _get_prices(self):
         prices = {}
@@ -109,33 +109,63 @@ class MomentumStrategy(Strategy):
 
         inst_id = bar.bar_type.instrument_id
 
+        # --- Update indicators (per-bar) ---
         self.vwaps[inst_id].update_raw(
             price=float(bar.close),
             volume=float(bar.volume),
             timestamp=timestamp,
         )
 
+        # ------------------------------------------------------------
+        # Execute strategy logic ONCE per minute
+        # ------------------------------------------------------------
+        current_minute = timestamp.minute
+
+        if self._last_minute is None:
+            self._last_minute = current_minute
+
+        if current_minute != self._last_minute:
+            self._last_minute = current_minute
+            self.on_minute(timestamp)
+
+    def on_minute(self, timestamp: pd.Timestamp):
+        """
+        Called once per minute to:
+        - build portfolio state
+        - optimize target positions
+        - execute trades
+        """
+
         # ------------------------------------------------------------------
         # 1️⃣ Build inputs for optimizer
         # ------------------------------------------------------------------
-        prices = self._get_prices()  # Series indexed by InstrumentId
-        positions = self._get_positions()  # shares
+        prices = self._get_prices()
+        positions = self._get_positions()
         portfolio_value = self._get_portfilio_value()
 
         current_position_usd = positions * prices
 
-        #alpha = self.custom_config.alpha_signal.loc[self.instrument_ids]
-        alpha = pd.Series(np.random.normal(loc=0.0, scale=1.0, size=len(self.instrument_ids)), index=self.instrument_ids)
-        #trading_cost = self.custom_config.trading_cost_usd.loc[self.instrument_ids]
-        trading_cost = pd.Series(0.005, index=self.instrument_ids)
-        #risk_lambda = self.custom_config.risk_lambda.loc[self.instrument_ids]
-        risk_lambda = pd.Series(0.001, index=self.instrument_ids)
-        #clip_pos_usd = self.custom_config.clip_pos_usd.loc[self.instrument_ids]
-        clip_pos_usd = pd.Series(0.5 * portfolio_value, index=self.instrument_ids)
-        #clip_trd_usd = self.custom_config.clip_trd_usd.loc[self.instrument_ids]
-        clip_trd_usd = pd.Series(0.5 * portfolio_value, index=self.instrument_ids)
+        # --- Alpha & model inputs (unchanged placeholders) ---
+        alpha = pd.Series(
+            np.random.normal(loc=0.0, scale=1.0, size=len(self.instrument_ids)),
+            index=self.instrument_ids,
+        )
 
-        factor_loading = pd.Series(np.random.normal(loc=0.0, scale=1.0, size=len(self.instrument_ids)), index=self.instrument_ids)
+        trading_cost = pd.Series(0.005, index=self.instrument_ids)
+        risk_lambda = pd.Series(0.001, index=self.instrument_ids)
+
+        clip_pos_usd = pd.Series(
+            0.5 * portfolio_value, index=self.instrument_ids
+        )
+        clip_trd_usd = pd.Series(
+            0.5 * portfolio_value, index=self.instrument_ids
+        )
+
+        factor_loading = pd.Series(
+            np.random.normal(loc=0.0, scale=1.0, size=len(self.instrument_ids)),
+            index=self.instrument_ids,
+        )
+
         # ------------------------------------------------------------------
         # 2️⃣ Optimize TARGET POSITIONS (USD)
         # ------------------------------------------------------------------
@@ -154,9 +184,9 @@ class MomentumStrategy(Strategy):
         # ------------------------------------------------------------------
         # 3️⃣ Execute trades
         # ------------------------------------------------------------------
-        self.execute_wave(bar)
+        self.execute_wave()
 
-    def execute_wave(self, bar: Bar):
+    def execute_wave(self):
         if self.target_positions_usd is None:
             return
 
