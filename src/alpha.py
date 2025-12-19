@@ -8,6 +8,7 @@ from typing import List
 
 
 def calculate_target_weights(
+    positions,
     instrument_ids: List[str],
     max_position_weight: float = 0.05,
     max_leverage: float = 1.5,

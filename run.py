@@ -26,7 +26,6 @@ def main():
     strategy_config = MomentumConfig(
         instrument_ids=instruments,
         venue=venue,
-        wave_times=["10:00", "11:00", "14:00"]
     )
 
     # 3. Run

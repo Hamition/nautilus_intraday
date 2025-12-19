@@ -28,8 +28,6 @@ class MomentumStrategy(Strategy):
         self.venue = Venue(config.venue)
         self.custom_config = config
 
-        self.wave_times = [time.fromisoformat(t) for t in config.wave_times]
-        self.wave = 0
         self.weights = None
         self.day_count = 0
         self.at_wave = False
@@ -56,30 +54,17 @@ class MomentumStrategy(Strategy):
             price=float(bar.close), volume=float(bar.volume), timestamp=timestamp
         )
 
-        prev_at_wave = self.at_wave
-
-        # 1. Daily Rebalance (Alpha Calculation)
-        if self.day_count % self.custom_config.rebalance_freq == 0 and current_time == self.wave_times[0]:
-            if not self.at_wave:
-                # Call the external Alpha module
-                self.weights = calculate_target_weights(
-                    self.instrument_ids,
-                    self.custom_config.max_position_weight,
-                    self.custom_config.max_leverage
+        # 1. Minute Rebalance (Alpha Calculation)
+        # Call the external Alpha module
+        self.weights = calculate_target_weights(
+                self.cache.positions(),
+                self.instrument_ids,
+                self.custom_config.max_position_weight,
+                self.custom_config.max_leverage
                 )
-                self.at_wave = True
 
         # 2. Execution
-        if current_time == self.wave_times[self.wave]:
-            self.execute_wave(bar.bar_type.instrument_id, bar)
-            self.at_wave = True
-        else:
-            self.at_wave = False
-
-        if prev_at_wave and not self.at_wave:
-            self.wave = (self.wave + 1) % len(self.wave_times)
-            if self.wave == 0:
-                self.day_count += 1
+        self.execute_wave(bar.bar_type.instrument_id, bar)
 
     def execute_wave(self, instrument_id: InstrumentId, bar: Bar):
         if self.weights is None: return

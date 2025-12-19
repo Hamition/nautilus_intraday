@@ -11,7 +11,6 @@ class MomentumConfig(StrategyConfig):
     Configuration for the intraday MomentumStrategy.
     """
     instrument_ids: List[str]
-    wave_times: List[str] #= ["10:00", "11:00", "14:00"]
     venue: str = "XNYS"
     rebalance_freq: int = 1
     max_leverage: float = 1.5
