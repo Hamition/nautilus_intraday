@@ -1,70 +1,69 @@
-# src/alpha.py
-from __future__ import annotations
-
 import numpy as np
-import pandas as pd
 import cvxpy as cp
-from typing import List
+import pandas as pd
 
 
-def calculate_target_weights(
-    positions,
-    instrument_ids: List[str],
-    max_position_weight: float = 0.05,
-    max_leverage: float = 1.5,
-    use_mosek: bool = False,
+def optimize_target_positions_usd(
+    alpha: pd.Series,
+    current_position_usd: pd.Series,
+    trading_cost: pd.Series,
+    risk_lambda: pd.Series,
+    clip_pos_usd: pd.Series,
+    clip_trd_usd: pd.Series,
+    factor_exposure: pd.Series | None = None,
+    clip_exposure: float | None = None,
+    max_delta: float = 0.0,
+    solver: str = "SCS",
 ) -> pd.Series:
     """
-    Calculates mean-variance optimized weights.
-
-    Placeholder alpha: random expected returns (replace with real signals).
-
-    Parameters
-    ----------
-    instrument_ids : List[str]
-        List of instrument ID strings.
-    max_position_weight : float, default 0.05
-        Maximum weight per position.
-    max_leverage : float, default 1.5
-        Maximum gross exposure (L1 norm).
-    use_mosek : bool, default False
-        Use MOSEK solver if available and licensed (otherwise falls back to SCS/ECOS).
+    Optimize target positions directly in USD with trading cost penalty.
 
     Returns
     -------
     pd.Series
-        Optimized weights indexed by instrument_ids.
+        Target positions in USD.
     """
-    n = len(instrument_ids)
-    if n == 0:
-        return pd.Series(dtype=float)
+    idx = alpha.index
+    n = len(idx)
 
-    # Placeholder alpha model — replace with real expected returns
-    mu = np.random.normal(loc=0.0, scale=0.1, size=n)  # Simulated daily excess returns
-    Sigma = np.eye(n)  # Identity covariance (low risk correlation placeholder)
-    gamma = 1.0  # Risk aversion
+    # Align everything
+    x0 = current_position_usd.loc[idx].values
+    alpha = alpha.loc[idx].values
+    cost = trading_cost.loc[idx].values
+    lam = risk_lambda.loc[idx].values
+    pos_cap = clip_pos_usd.loc[idx].values
+    trd_cap = clip_trd_usd.loc[idx].values
 
-    w = cp.Variable(n)
-    ret = mu @ w
-    risk = cp.quad_form(w, Sigma)
+    x = cp.Variable(n)
+
+    objective = cp.Maximize(
+        alpha @ x
+        - cost @ cp.abs(x - x0)
+        - 0.5 * cp.sum(cp.multiply(lam, cp.square(x)))
+    )
 
     constraints = [
-        cp.sum(w) == 1.0,
-        w >= 0,                     # Long-only
-        w <= max_position_weight,
-        cp.norm(w, 1) <= max_leverage,
+        cp.abs(x) <= pos_cap,
+        cp.abs(x - x0) <= trd_cap,
     ]
 
-    prob = cp.Problem(cp.Maximize(ret - gamma * risk), constraints)
+    if max_delta > 0:
+        constraints.append(cp.abs(cp.sum(x)) <= max_delta)
 
-    solver = cp.MOSEK if use_mosek else cp.SCS
+    if factor_exposure is not None and clip_exposure is not None:
+        f = factor_exposure.loc[idx].values
+        constraints.append(cp.abs(f @ x) <= clip_exposure)
+
+    problem = cp.Problem(objective, constraints)
+
     try:
-        prob.solve(solver=solver, verbose=False)
-        if w.value is None:
-            raise ValueError("Solver returned no solution")
-        weights = w.value
-    except (cp.SolverError, ValueError) as e:
-        print(f"Optimization failed ({solver}): {e}. Falling back to equal weights.")
-        weights = np.ones(n) / n
+        problem.solve(
+            solver=cp.MOSEK if solver == "MOSEK" else cp.SCS,
+            verbose=False,
+        )
+        if x.value is None:
+            raise ValueError("Solver returned None")
+    except Exception as exc:
+        raise RuntimeError(f"Optimization failed: {exc}")
 
-    return pd.Series(weights, index=instrument_ids)
+    return pd.Series(x.value, index=idx)
