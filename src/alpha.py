@@ -33,13 +33,14 @@ def optimize_target_positions_usd(
     lam = risk_lambda.loc[idx].values
     pos_cap = clip_pos_usd.loc[idx].values
     trd_cap = clip_trd_usd.loc[idx].values
-
+    '''
     print("x0=", x0)
     print("alpha=", alpha)
     print("cost=", cost)
     print("lam=", lam)
     print("pos_cap=", pos_cap)
     print("trd_cap=", trd_cap)
+    '''
     x = cp.Variable(n)
 
     objective = cp.Maximize(

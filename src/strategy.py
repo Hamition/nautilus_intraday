@@ -56,7 +56,7 @@ class MomentumStrategy(Strategy):
 
     def _get_positions(self):
         positions = self.cache.positions()
-        print(positions)
+        #print(positions)
 
         if len(positions) == 0:
             positions = pd.Series(0.0, index=self.instrument_ids)
@@ -68,7 +68,8 @@ class MomentumStrategy(Strategy):
                 if not name.startswith('__'):
                     print(f"{name}: {value}")
             '''
-            positions = pd.Series([x.signed_qty for x in positions], index=self.instrument_ids).fillna(0.)
+            positions = pd.Series([x.signed_qty for x in positions], index=[x.symbol for x in positions])
+            positions = pd.Series(positions, index=self.instrument_ids).fillna(0.)
         return positions
 
     def _get_portfilio_value(self):

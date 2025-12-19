@@ -5,7 +5,7 @@ from datetime import datetime
 from typing import List
 
 from nautilus_trader.backtest.node import BacktestNode, BacktestVenueConfig, BacktestRunConfig
-from nautilus_trader.config import BacktestEngineConfig, ImportableStrategyConfig
+from nautilus_trader.config import BacktestEngineConfig, ImportableStrategyConfig, LoggingConfig
 from nautilus_trader.backtest.config import BacktestDataConfig
 
 
@@ -38,7 +38,9 @@ def run_backtest(
                 config_path=config_path,
                 config=strategy_config,
             )
-        ]
+        ],
+        #logging=LoggingConfig(log_level="INFO"),
+        logging=LoggingConfig(log_level="ERROR"),
     )
 
     run_config = BacktestRunConfig(
