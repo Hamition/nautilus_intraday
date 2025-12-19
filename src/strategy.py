@@ -1,6 +1,7 @@
 # src/strategy.py
 from __future__ import annotations
 
+import numpy as np
 import os
 import pandas as pd
 from datetime import time
@@ -45,7 +46,6 @@ class MomentumStrategy(Strategy):
         }
 
     def _get_prices(self):
-
         prices = {}
         for inst_id in self.instrument_ids:
             price = self.cache.price(inst_id, PriceType.LAST)
@@ -57,7 +57,18 @@ class MomentumStrategy(Strategy):
     def _get_positions(self):
         positions = self.cache.positions()
         print(positions)
-        positions = pd.Series(positions)
+
+        if len(positions) == 0:
+            positions = pd.Series(0.0, index=self.instrument_ids)
+        else:
+            '''
+            import inspect
+            all_members = inspect.getmembers(positions[0])
+            for name, value in all_members:
+                if not name.startswith('__'):
+                    print(f"{name}: {value}")
+            '''
+            positions = pd.Series([x.signed_qty for x in positions], index=self.instrument_ids).fillna(0.)
         return positions
 
     def _get_portfilio_value(self):
@@ -113,13 +124,18 @@ class MomentumStrategy(Strategy):
 
         current_position_usd = positions * prices
 
-        alpha = self.custom_config.alpha_signal.loc[self.instrument_ids]
+        #alpha = self.custom_config.alpha_signal.loc[self.instrument_ids]
+        alpha = pd.Series(np.random.normal(loc=0.0, scale=1.0, size=len(self.instrument_ids)), index=self.instrument_ids)
+        #trading_cost = self.custom_config.trading_cost_usd.loc[self.instrument_ids]
+        trading_cost = pd.Series(0.005, index=self.instrument_ids)
+        #risk_lambda = self.custom_config.risk_lambda.loc[self.instrument_ids]
+        risk_lambda = pd.Series(0.001, index=self.instrument_ids)
+        #clip_pos_usd = self.custom_config.clip_pos_usd.loc[self.instrument_ids]
+        clip_pos_usd = pd.Series(0.5 * portfolio_value, index=self.instrument_ids)
+        #clip_trd_usd = self.custom_config.clip_trd_usd.loc[self.instrument_ids]
+        clip_trd_usd = pd.Series(0.5 * portfolio_value, index=self.instrument_ids)
 
-        trading_cost = self.custom_config.trading_cost_usd.loc[self.instrument_ids]
-        risk_lambda = self.custom_config.risk_lambda.loc[self.instrument_ids]
-        clip_pos_usd = self.custom_config.clip_pos_usd.loc[self.instrument_ids]
-        clip_trd_usd = self.custom_config.clip_trd_usd.loc[self.instrument_ids]
-
+        factor_loading = pd.Series(np.random.normal(loc=0.0, scale=1.0, size=len(self.instrument_ids)), index=self.instrument_ids)
         # ------------------------------------------------------------------
         # 2️⃣ Optimize TARGET POSITIONS (USD)
         # ------------------------------------------------------------------
@@ -131,8 +147,8 @@ class MomentumStrategy(Strategy):
             clip_pos_usd=clip_pos_usd,
             clip_trd_usd=clip_trd_usd,
             max_delta=self.custom_config.max_delta,
-            factor_exposure=self.custom_config.factor_exposure,
-            clip_exposure=self.custom_config.clip_exposure,
+            factor_loading=factor_loading,
+            max_factor_exposure=self.custom_config.max_factor_exposure,
         )
 
         # ------------------------------------------------------------------
@@ -144,8 +160,8 @@ class MomentumStrategy(Strategy):
         if self.target_positions_usd is None:
             return
 
-        prices = self.cache.prices()
-        positions = self.cache.positions()
+        prices = self._get_prices()
+        positions = self._get_positions()
 
         target_shares = self.target_positions_usd / prices
         trades = target_shares - positions
@@ -156,12 +172,12 @@ class MomentumStrategy(Strategy):
 
             side = OrderSide.BUY if trade_qty > 0 else OrderSide.SELL
 
-            order = MarketOrder(
+            order = self.order_factory.market(
                 instrument_id=inst_id,
                 order_side=side,
                 quantity=Quantity(abs(trade_qty), 0),
                 time_in_force=TimeInForce.IOC,
-                client_order_id=ClientOrderId(UUID4()),
+                client_order_id=ClientOrderId(str(UUID4())),
             )
 
             self.submit_order(order)

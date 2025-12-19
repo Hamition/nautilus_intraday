@@ -17,3 +17,6 @@ class MomentumConfig(StrategyConfig):
     max_position_weight: float = 0.05
     max_volume_ratio: float = 0.01
     portfolio_value: float = 1_000_000.0
+    max_delta: float = 1_000_000.0
+    max_factor_exposure: float = 1_000_000.0
+    min_trade_qty: float = 1.0
