@@ -1,0 +1,10 @@
+# configs/config.yaml
+
+defaults:
+  - backtest
+  - universe
+  - strategy: momentum
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}

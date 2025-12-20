@@ -1,0 +1,11 @@
+_target_: src.config.MomentumConfig
+
+venue: ${backtest.venue}
+
+# filled dynamically
+instrument_ids: []
+
+max_delta: 100000
+clip_exposure: 500000
+
+min_trade_qty: 1

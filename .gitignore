@@ -50,6 +50,7 @@ data/
 logs/
 backtest_results/
 .nautilus/
+outputs
 
 # --- Analysis & MLflow ---
 # If you are using MLflow locally (as seen in analysis.py)
