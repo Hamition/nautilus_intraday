@@ -22,6 +22,7 @@ def main():
     start_date = pd.Timestamp('2024-10-01', tz='UTC')
     end_date = pd.Timestamp('2024-11-01', tz='UTC')
     venue = "XNYS"
+    starting_balances=["1_000_000 USD"]
 
     strategy_config = MomentumConfig(
         instrument_ids=instruments,
@@ -36,7 +37,8 @@ def main():
         venue_name=venue,
         data_configs=data_configs,
         start=start_date,
-        end=end_date
+        end=end_date,
+        starting_balances=starting_balances,
     )
 
     print(results)

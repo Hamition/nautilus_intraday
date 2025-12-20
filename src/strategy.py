@@ -156,10 +156,10 @@ class MomentumStrategy(Strategy):
         risk_lambda = pd.Series(0.001, index=self.instrument_ids)
 
         clip_pos_usd = pd.Series(
-            0.5 * portfolio_value, index=self.instrument_ids
+            self.custom_config.max_position_weight * portfolio_value, index=self.instrument_ids
         )
         clip_trd_usd = pd.Series(
-            0.5 * portfolio_value, index=self.instrument_ids
+            self.custom_config.max_trade_weight * portfolio_value, index=self.instrument_ids
         )
 
         factor_loading = pd.Series(

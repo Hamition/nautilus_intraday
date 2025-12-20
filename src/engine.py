@@ -17,6 +17,7 @@ def run_backtest(
     data_configs: List[BacktestDataConfig] = None,
     start: datetime | None = None,
     end: datetime | None = None,
+    starting_balances: List[str] = None
 ):
     """Run a high-level backtest using BacktestNode (recommended Nautilus API)."""
     if data_configs is None:
@@ -27,7 +28,7 @@ def run_backtest(
             name=venue_name,
             oms_type="NETTING",
             account_type="MARGIN",
-            starting_balances=["1_000_000 USD"],
+            starting_balances=starting_balances,
         )
     ]
 
