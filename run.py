@@ -3,13 +3,15 @@ import pandas as pd
 import hydra
 
 from dotenv import load_dotenv
+from hydra.utils import instantiate
 from omegaconf import DictConfig
 
 from src.config import MomentumConfig
 from src.data import get_catalog, get_top_liquid_instruments, create_data_configs
 from src.engine import run_backtest
-
 # Load environment
+from omegaconf import OmegaConf
+
 
 @hydra.main(version_base=None, config_path="conf", config_name="config")
 def main(cfg: DictConfig):
@@ -26,13 +28,15 @@ def main(cfg: DictConfig):
     start_date = pd.Timestamp(cfg.backtest.start_date, tz='UTC')
     end_date = pd.Timestamp(cfg.backtest.end_date, tz='UTC')
     venue = cfg.backtest.venue
-    strategy_config = MomentumConfig(
-        instrument_ids=instruments,
-        venue=venue,
-    )
 
     starting_balances = list(cfg.backtest.starting_balances)
+    cfg.strategy.instrument_ids = instruments
+
+    strategy_config = instantiate(cfg.strategy, _convert_="all")
+
     print(start_date, end_date, venue, starting_balances)
+    print(strategy_config)
+
     # 3. Run
     results = run_backtest(
         strategy_path="src.strategy:MomentumStrategy",

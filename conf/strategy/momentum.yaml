@@ -1,11 +1,22 @@
+# conf/strategy/momentum.yaml
+
 _target_: src.config.MomentumConfig
-
-venue: ${backtest.venue}
-
-# filled dynamically
+# Required
 instrument_ids: []
 
-max_delta: 100000
-clip_exposure: 500000
+# Trading venue
+venue: XNYS
 
+# Risk / leverage controls
+max_leverage: 1.5
+
+# Position sizing
+max_position_weight: 0.05
+max_trade_weight: 0.05
+
+# USD-level constraints
+max_delta: 1_000_000
+max_factor_exposure: 1_000_000
+
+# Execution guardrails
 min_trade_qty: 1
