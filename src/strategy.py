@@ -204,6 +204,7 @@ class MomentumStrategy(Strategy):
         trades = target_shares - positions
 
         for inst_id, trade_qty in trades.items():
+            trade_qty = round(trade_qty)
             if abs(trade_qty) < self.custom_config.min_trade_qty:
                 continue
             self.execution.submit_target(

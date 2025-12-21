@@ -1,38 +1,50 @@
 from collections import defaultdict
 
 from .state import ExecutionSchedule
-from .algos.vwap import VWAPExecutionAlgo
 
+from .algos.vwap import VWAPExecutionAlgo
+from .algos.pov import POVExecutionAlgo
+from .algos.twap import TWAPExecutionAlgo
 
 class ExecutionEngine:
     def __init__(self, strategy, config):
         self.strategy = strategy
         self.cfg = config
-
-        self._schedules = defaultdict(list)
+        self._schedules = {}
 
         if config.algo == "vwap":
             self.algo = VWAPExecutionAlgo(config)
+        elif config.algo == "twap":
+            self.algo = TWAPExecutionAlgo(config)
+        elif config.algo == "pov":
+            self.algo = POVExecutionAlgo(config)
+        elif config.algo == "market":
+            self.algo = None
         else:
             raise ValueError(f"Unknown execution algo: {config.algo}")
+
 
     # -----------------------------
     # Public API (used by strategy)
     # -----------------------------
-
     def submit_target(self, instrument_id, delta_qty, ts_event):
         if delta_qty == 0:
             return
 
-        end_ts = ts_event + self.cfg.horizon_minutes * 60 * 1_000_000_000
-
-        schedule = ExecutionSchedule(
-            instrument_id=instrument_id,
-            remaining_qty=delta_qty,
-            end_ts=end_ts,
+        end_ts = (
+            ts_event
+            if self.cfg.algo == "market"
+            else ts_event + self.cfg.horizon_minutes * 60_000_000_000
         )
 
-        self._schedules[instrument_id].append(schedule)
+        self._schedules.setdefault(instrument_id, []).append(
+            ExecutionSchedule(
+                instrument_id=instrument_id,
+                remaining_qty=delta_qty,
+                start_ts=ts_event,
+                end_ts=end_ts,
+            )
+        )
 
     # -----------------------------
     # Called every bar

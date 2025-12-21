@@ -6,13 +6,11 @@ from typing import List
 
 import msgspec
 
-
 class ExecutionConfig(msgspec.Struct):
-    algo: str = "vwap"
-    horizon_minutes: int = 30
-    participation_rate: float = 0.1
+    algo: str = "vwap"          # market | twap | pov | vwap
+    horizon_minutes: int = 30   # for TWAP / VWAP
+    participation_rate: float = 0.1  # for POV / VWAP
     min_slice_qty: int = 1
-
 
 class MomentumConfig(StrategyConfig):
     instrument_ids: List[str]
