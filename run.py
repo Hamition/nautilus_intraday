@@ -25,6 +25,10 @@ def main(cfg: DictConfig):
     data_configs = create_data_configs(NAUTILUS_ROOT, instruments)
 
     # 2. Define Parameters
+
+    strategy_path = cfg.backtest.strategy_path
+    config_path = cfg.backtest.config_path
+
     start_date = pd.Timestamp(cfg.backtest.start_date, tz='UTC')
     end_date = pd.Timestamp(cfg.backtest.end_date, tz='UTC')
     venue = cfg.backtest.venue
@@ -34,13 +38,14 @@ def main(cfg: DictConfig):
 
     strategy_config = instantiate(cfg.strategy, _convert_="all")
 
+
     print(start_date, end_date, venue, starting_balances)
     print(strategy_config)
 
     # 3. Run
     results = run_backtest(
-        strategy_path="src.strategy:MomentumStrategy",
-        config_path="src.config:MomentumConfig",
+        strategy_path=strategy_path,
+        config_path=config_path,
         strategy_config=strategy_config,
         venue_name=venue,
         data_configs=data_configs,

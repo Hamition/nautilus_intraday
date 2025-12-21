@@ -4,3 +4,5 @@ backtest:
   venue: "XNYS"
   starting_balances:
     - "1_000_000 USD"
+  strategy_path: "src.strategy:MomentumStrategy"
+  config_path: "src.config:MomentumConfig"
