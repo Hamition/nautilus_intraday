@@ -1,12 +1,12 @@
 from collections import defaultdict
 
 from nautilus_trader.model.enums import OrderSide
-from .state import ExecutionSchedule
 
 from .algos.vwap import VWAPExecutionAlgo
 from .algos.vwap_passive import PassiveVWAPExecutionAlgo
 from .algos.pov import POVExecutionAlgo
 from .algos.twap import TWAPExecutionAlgo
+from .state import ExecutionSchedule
 
 class ExecutionEngine:
     def __init__(self, strategy, config):
