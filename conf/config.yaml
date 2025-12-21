@@ -1,6 +1,7 @@
 # configs/config.yaml
 
 defaults:
+  - _self_
   - backtest
   - universe
   - strategy: momentum

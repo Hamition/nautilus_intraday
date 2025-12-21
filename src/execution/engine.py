@@ -2,10 +2,11 @@ from collections import defaultdict
 
 from nautilus_trader.model.enums import OrderSide
 
-from .algos.vwap import VWAPExecutionAlgo
-from .algos.vwap_passive import PassiveVWAPExecutionAlgo
+from .algos.market import MarketExecutionAlgo
 from .algos.pov import POVExecutionAlgo
 from .algos.twap import TWAPExecutionAlgo
+from .algos.vwap import VWAPExecutionAlgo
+from .algos.vwap_passive import PassiveVWAPExecutionAlgo
 from .state import ExecutionSchedule
 
 class ExecutionEngine:
@@ -23,7 +24,7 @@ class ExecutionEngine:
         elif config.algo == "pov":
             self.algo = POVExecutionAlgo(config)
         elif config.algo == "market":
-            self.algo = None
+            self.algo = MarketExecutionAlgo(config)
         else:
             raise ValueError(f"Unknown execution algo: {config.algo}")
 
