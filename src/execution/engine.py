@@ -1,8 +1,10 @@
 from collections import defaultdict
 
+from nautilus_trader.model.enums import OrderSide
 from .state import ExecutionSchedule
 
 from .algos.vwap import VWAPExecutionAlgo
+from .algos.vwap_passive import PassiveVWAPExecutionAlgo
 from .algos.pov import POVExecutionAlgo
 from .algos.twap import TWAPExecutionAlgo
 
@@ -12,7 +14,9 @@ class ExecutionEngine:
         self.cfg = config
         self._schedules = {}
 
-        if config.algo == "vwap":
+        if config.algo == "vwap" and config.passive:
+            self.algo = PassiveVWAPExecutionAlgo(config)
+        elif config.algo == "vwap":
             self.algo = VWAPExecutionAlgo(config)
         elif config.algo == "twap":
             self.algo = TWAPExecutionAlgo(config)
@@ -72,6 +76,16 @@ class ExecutionEngine:
 
     def submit_market_order(self, instrument_id, side, quantity):
         self.strategy.submit_market_order(instrument_id, side, quantity)
+
+    def submit_limit_order(self, instrument_id, side, quantity, price):
+        self.strategy.submit_limit_order(instrument_id, side, quantity, price)
+
+    def compute_passive_price(self, bar, side, offset_ticks=0):
+        tick_size = self.strategy.cache.instrument(bar.bar_type.instrument_id).price_increment
+        if side == OrderSide.BUY:
+            return bar.close - tick_size * offset_ticks
+        else:
+            return bar.close + tick_size * offset_ticks
 
     def finish_schedule(self, schedule):
         self._schedules[schedule.instrument_id].remove(schedule)

@@ -7,7 +7,7 @@ from exchange_calendars import get_calendar
 from nautilus_trader.core.rust.model import PriceType
 from nautilus_trader.core.uuid import UUID4
 from nautilus_trader.indicators import VolumeWeightedAveragePrice
-from nautilus_trader.model import Quantity
+from nautilus_trader.model import Quantity, Price
 from nautilus_trader.model.data import Bar, BarType, BarSpecification, BarAggregation
 from nautilus_trader.model.enums import OrderSide, TimeInForce
 from nautilus_trader.model.identifiers import ClientOrderId, InstrumentId, Venue
@@ -220,6 +220,18 @@ class MomentumStrategy(Strategy):
                         order_side=side,
                         quantity=Quantity(abs(quantity), 0),
                         time_in_force=TimeInForce.IOC,
+                        client_order_id=ClientOrderId(str(UUID4()))
+                    )
+        self.submit_order(order)
+
+    def submit_limit_order(self, instrument_id, side, quantity, price):
+
+        order = self.order_factory.limit(
+                        instrument_id=instrument_id,
+                        order_side=side,
+                        quantity=Quantity(abs(quantity), 0),
+                        price=Price(price, 2),
+                        time_in_force=TimeInForce.GTC,
                         client_order_id=ClientOrderId(str(UUID4()))
                     )
         self.submit_order(order)

@@ -12,6 +12,10 @@ class ExecutionConfig(msgspec.Struct):
     participation_rate: float = 0.1  # for POV / VWAP
     min_slice_qty: int = 1
 
+    passive: bool = False               # 🔑 NEW
+    max_cross_spread_minutes: int = 5   # fallback aggressiveness
+    price_offset_ticks: int = 0         # passive improvement
+
 class MomentumConfig(StrategyConfig):
     instrument_ids: List[str]
     venue: str = "XNYS"

@@ -26,3 +26,6 @@ execution:
   horizon_minutes: 30
   participation_rate: 0.1    # max 10% of bar volume
   min_slice_qty: 1
+  passive: false
+  max_cross_spread_minutes: 5
+  price_offset_ticks: 0
