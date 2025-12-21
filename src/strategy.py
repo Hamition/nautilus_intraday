@@ -1,26 +1,27 @@
 # src/strategy.py
 from __future__ import annotations
 
-import numpy as np
-import os
-import pandas as pd
 from datetime import time
+from exchange_calendars import get_calendar
 
+from nautilus_trader.core.rust.model import PriceType
+from nautilus_trader.core.uuid import UUID4
+from nautilus_trader.indicators import VolumeWeightedAveragePrice
 from nautilus_trader.model import Quantity
 from nautilus_trader.model.data import Bar, BarType, BarSpecification, BarAggregation
 from nautilus_trader.model.enums import OrderSide, TimeInForce
-from nautilus_trader.model.orders import MarketOrder
 from nautilus_trader.model.identifiers import ClientOrderId, InstrumentId, Venue
-from nautilus_trader.core.uuid import UUID4
-from nautilus_trader.trading.strategy import Strategy
-from nautilus_trader.core.rust.model import PriceType
+from nautilus_trader.model.orders import MarketOrder
 from nautilus_trader.persistence.catalog import ParquetDataCatalog
-from nautilus_trader.indicators import VolumeWeightedAveragePrice
-from exchange_calendars import get_calendar
+from nautilus_trader.trading.strategy import Strategy
 
+import numpy as np
+import os
+import pandas as pd
+
+from .alpha import optimize_target_positions_usd
 from .config import MomentumConfig
-from .alpha import optimize_target_positions_usd   # 🔴 CHANGED
-
+from .execution.engine import ExecutionEngine
 
 class MomentumStrategy(Strategy):
     def __init__(self, config: MomentumConfig):
@@ -43,6 +44,10 @@ class MomentumStrategy(Strategy):
             for inst_id in self.instrument_ids
 
         }
+        self.execution = ExecutionEngine(
+            strategy=self,
+            config=self.config.execution,
+        )
         self._last_minute: int | None = None
 
     def _get_prices(self):
@@ -100,11 +105,12 @@ class MomentumStrategy(Strategy):
             self.subscribe_bars(BarType(instrument_id, bar_spec))
 
     def on_bar(self, bar: Bar):
+        ts_event = bar.ts_event
         timestamp = (
-            pd.Timestamp(bar.ts_event, unit="ns", tz="UTC")
+            pd.Timestamp(ts_event, unit="ns", tz="UTC")
             .astimezone("America/New_York")
         )
-
+        self.execution.on_bar(bar)
         if not self.calendar.is_session(str(timestamp.date())):
             return
 
@@ -127,9 +133,9 @@ class MomentumStrategy(Strategy):
 
         if current_minute != self._last_minute:
             self._last_minute = current_minute
-            self.on_minute(timestamp)
+            self.on_minute(ts_event)
 
-    def on_minute(self, timestamp: pd.Timestamp):
+    def on_minute(self, ts_event):
         """
         Called once per minute to:
         - build portfolio state
@@ -185,9 +191,9 @@ class MomentumStrategy(Strategy):
         # ------------------------------------------------------------------
         # 3️⃣ Execute trades
         # ------------------------------------------------------------------
-        self.execute_wave()
+        self.execute_wave(ts_event)
 
-    def execute_wave(self):
+    def execute_wave(self, ts_event):
         if self.target_positions_usd is None:
             return
 
@@ -200,15 +206,19 @@ class MomentumStrategy(Strategy):
         for inst_id, trade_qty in trades.items():
             if abs(trade_qty) < self.custom_config.min_trade_qty:
                 continue
-
-            side = OrderSide.BUY if trade_qty > 0 else OrderSide.SELL
-
-            order = self.order_factory.market(
+            self.execution.submit_target(
                 instrument_id=inst_id,
-                order_side=side,
-                quantity=Quantity(abs(trade_qty), 0),
-                time_in_force=TimeInForce.IOC,
-                client_order_id=ClientOrderId(str(UUID4())),
+                delta_qty=trade_qty,
+                ts_event=ts_event,
             )
 
-            self.submit_order(order)
+    def submit_market_order(self, instrument_id, side, quantity):
+
+        order = self.order_factory.market(
+                        instrument_id=instrument_id,
+                        order_side=side,
+                        quantity=Quantity(abs(quantity), 0),
+                        time_in_force=TimeInForce.IOC,
+                        client_order_id=ClientOrderId(str(UUID4()))
+                    )
+        self.submit_order(order)

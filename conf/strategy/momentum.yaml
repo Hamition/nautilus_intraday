@@ -20,3 +20,9 @@ max_factor_exposure: 1_000_000
 
 # Execution guardrails
 min_trade_qty: 1
+
+execution:
+  algo: vwap
+  horizon_minutes: 30
+  participation_rate: 0.1    # max 10% of bar volume
+  min_slice_qty: 1
