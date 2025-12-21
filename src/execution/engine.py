@@ -1,5 +1,7 @@
-from collections import defaultdict
+# src/execution/engine.py
+from __future__ import annotations
 
+from collections import defaultdict
 from nautilus_trader.model.enums import OrderSide
 
 from .algos.market import MarketExecutionAlgo

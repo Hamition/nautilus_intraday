@@ -1,17 +1,17 @@
+# run.py
+from __future__ import annotations
+
+from dotenv import load_dotenv
+from hydra.utils import instantiate
+from omegaconf import DictConfig, OmegaConf
+
 import os
 import pandas as pd
 import hydra
 
-from dotenv import load_dotenv
-from hydra.utils import instantiate
-from omegaconf import DictConfig
-
 from src.config import MomentumConfig
 from src.data import get_catalog, get_top_liquid_instruments, create_data_configs
 from src.engine import run_backtest
-# Load environment
-from omegaconf import OmegaConf
-
 
 @hydra.main(version_base=None, config_path="conf", config_name="config")
 def main(cfg: DictConfig):

@@ -1,5 +1,7 @@
-from nautilus_trader.model.enums import OrderSide
+# src/execution/algos/vwap.py
+from __future__ import annotations
 
+from nautilus_trader.model.enums import OrderSide
 
 class VWAPExecutionAlgo:
     def __init__(self, config):

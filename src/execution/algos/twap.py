@@ -1,4 +1,6 @@
 # src/execution/algos/twap.py
+from __future__ import annotations
+
 from nautilus_trader.model.enums import OrderSide
 
 class TWAPExecutionAlgo:

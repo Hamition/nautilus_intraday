@@ -1,7 +1,9 @@
+# src/alpha.py
+from __future__ import annotations
+
 import numpy as np
 import cvxpy as cp
 import pandas as pd
-
 
 def optimize_target_positions_usd(
     alpha: pd.Series,

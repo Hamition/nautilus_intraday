@@ -1,3 +1,6 @@
+# src/execution/algos/vwap_passive.py
+from __future__ import annotations
+
 from nautilus_trader.model.enums import OrderSide, TimeInForce
 from nautilus_trader.model.orders import LimitOrder
 
