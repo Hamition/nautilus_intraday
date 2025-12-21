@@ -2,16 +2,14 @@
 from __future__ import annotations
 
 from datetime import time
-from exchange_calendars import get_calendar
 
 from nautilus_trader.core.rust.model import PriceType
 from nautilus_trader.core.uuid import UUID4
 from nautilus_trader.indicators import VolumeWeightedAveragePrice
 from nautilus_trader.model import Quantity, Price
 from nautilus_trader.model.data import Bar, BarType, BarSpecification, BarAggregation
-from nautilus_trader.model.enums import OrderSide, TimeInForce
+from nautilus_trader.model.enums import TimeInForce
 from nautilus_trader.model.identifiers import ClientOrderId, InstrumentId, Venue
-from nautilus_trader.model.orders import MarketOrder
 from nautilus_trader.persistence.catalog import ParquetDataCatalog
 from nautilus_trader.trading.strategy import Strategy
 
@@ -22,6 +20,7 @@ import pandas as pd
 from .alpha import optimize_target_positions_usd
 from .config import MomentumConfig
 from .execution.engine import ExecutionEngine
+from .utils import is_trading_time
 
 class MomentumStrategy(Strategy):
     def __init__(self, config: MomentumConfig):
@@ -37,7 +36,6 @@ class MomentumStrategy(Strategy):
         self.catalog = ParquetDataCatalog(
             path=os.path.expanduser(os.getenv("NAUTILUS_ROOT"))
         )
-        self.calendar = get_calendar(config.venue)
 
         self.vwaps = {
             inst_id: VolumeWeightedAveragePrice()
@@ -100,40 +98,44 @@ class MomentumStrategy(Strategy):
         return portfolio_value
 
     def on_start(self):
+        # Subscribe to bars (unchanged)
         for instrument_id in self.instrument_ids:
             bar_spec = BarSpecification(1, BarAggregation.MINUTE, PriceType.LAST)
             self.subscribe_bars(BarType(instrument_id, bar_spec))
 
+        # 🔔 Add minute clock (fires exactly at minute boundaries)
+        self.clock.set_timer(
+            name="minute_timer",
+            interval=pd.Timedelta(minutes=1),
+            callback=self.on_minute_timer
+        )
+
+
+    def on_minute_timer(self, event: TimerEvent):
+        ts_event = event.ts_event
+        timestamp = pd.Timestamp(ts_event, unit="ns", tz="UTC")
+        if not is_trading_time(timestamp, self.venue.value):
+            return
+        self.on_minute(ts_event)
+
     def on_bar(self, bar: Bar):
+        # Update execution engine (VWAP/TWAP/POV)
+        self.execution.on_bar(bar)
+
+        inst_id = bar.bar_type.instrument_id
         ts_event = bar.ts_event
+
         timestamp = (
             pd.Timestamp(ts_event, unit="ns", tz="UTC")
             .astimezone("America/New_York")
         )
-        self.execution.on_bar(bar)
-        if not self.calendar.is_session(str(timestamp.date())):
-            return
 
-        inst_id = bar.bar_type.instrument_id
-
-        # --- Update indicators (per-bar) ---
+        # Update indicators only
         self.vwaps[inst_id].update_raw(
             price=float(bar.close),
             volume=float(bar.volume),
             timestamp=timestamp,
         )
-
-        # ------------------------------------------------------------
-        # Execute strategy logic ONCE per minute
-        # ------------------------------------------------------------
-        current_minute = timestamp.minute
-
-        if self._last_minute is None:
-            self._last_minute = current_minute
-
-        if current_minute != self._last_minute:
-            self._last_minute = current_minute
-            self.on_minute(ts_event)
 
     def on_minute(self, ts_event):
         """
